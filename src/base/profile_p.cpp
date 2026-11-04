@@ -79,6 +79,9 @@ Path Private::DefaultProfile::configLocation() const
 #if defined(Q_OS_WIN)
     // On Windows QSettings stores files in FOLDERID_RoamingAppData\AppName
     return locationWithConfigurationName(QStandardPaths::AppDataLocation);
+#elif defined(Q_OS_MACOS)
+    // On macOS QSettings with QSettings::IniFormat stores files in ~/.config/AppName
+    return Utils::Fs::homePath() / Path(u".config"_s) / Path(profileName());
 #else
     return locationWithConfigurationName(QStandardPaths::AppConfigLocation);
 #endif
