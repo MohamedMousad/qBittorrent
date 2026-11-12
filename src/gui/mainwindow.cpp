@@ -1128,6 +1128,8 @@ void MainWindow::on_actionAbout_triggered()
     // About dialog
     if (m_aboutDlg)
     {
+        m_aboutDlg->show();
+        m_aboutDlg->raise();
         m_aboutDlg->activateWindow();
     }
     else
@@ -1142,6 +1144,8 @@ void MainWindow::on_actionStatistics_triggered()
 {
     if (m_statsDlg)
     {
+        m_statsDlg->show();
+        m_statsDlg->raise();
         m_statsDlg->activateWindow();
     }
     else
